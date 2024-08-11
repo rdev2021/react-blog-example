@@ -56,3 +56,14 @@ jobs:
     - run: |
         echo "SemVer: ${{ steps.gitversion.outputs.semVer }}"
         echo "ShortSha: ${{ steps.gitversion.outputs.shortSha }}"
+
+    - name: Create tag
+      uses: actions/github-script@v3
+      with:
+        script: |
+          github.git.createRef({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            ref: "refs/tags/v${{ steps.gitversion.outputs.semVer }}",
+            sha: context.sha
+          })
