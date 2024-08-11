@@ -41,6 +41,7 @@ jobs:
         npm run test --if-present
 
   release:
+    needs: build
     runs-on: ubuntu-latest        
     steps:
       - uses: actions/checkout@v3
