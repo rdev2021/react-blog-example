@@ -8,7 +8,9 @@ on:
     branches:
       - main
       - dev
-
+env:
+  NODE_VERSION: '20.x' 
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,20 +25,17 @@ jobs:
     - name: Fetch all history for all tags and branches
       run: git fetch --prune
 
-    - name: Setting up Node 20
+    - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: 20
-        registry-url: https://registry.npmjs.org/
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
-
-    - name: Run the tests
-      run: npm test
-
-    - name: Build
-      run: npm run build
+    - name: npm install, build, and test
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
       
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v3.0.0
