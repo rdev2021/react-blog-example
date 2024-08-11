@@ -73,7 +73,7 @@ jobs:
         uses: actions/github-script@v6.4.1
         with:
           script: |
-            const tagName = '${{ steps.gitversion.outputs.semVer }}-${{ steps.gitversion.outputs.shortSha }}';
+            const tagName = '${{ steps.gitversion.outputs.MajorMinorPatch }}-${{ steps.gitversion.outputs.shortSha }}';
             const commitSha = process.env.GITHUB_SHA;
             const { owner, repo } = context.repo;
             console.log(`Creating new tag: ${tagName}...`);
