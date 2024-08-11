@@ -10,6 +10,9 @@ on:
       - dev
 env:
   NODE_VERSION: '20.x' 
+
+permissions:
+  contents: write   # This is required to create/push the new git tag 
   
 jobs:
   build:
