@@ -8,6 +8,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Create the production image
+# testing version
 FROM nginx:latest
 COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
