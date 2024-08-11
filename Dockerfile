@@ -1,4 +1,5 @@
 # Stage 1: Build the React app
+# better set a version directly
 FROM node:lts as builder
 WORKDIR /app
 COPY package.json ./
