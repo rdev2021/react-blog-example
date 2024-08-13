@@ -46,7 +46,7 @@ jobs:
     - name: Semantic Release
       uses: cycjimmy/semantic-release-action@v4
       env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # - name: Setup .NET Core
     #   uses: actions/setup-dotnet@v4
