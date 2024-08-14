@@ -30,7 +30,7 @@ jobs:
         run: npm install --force
 
       - name: Build the application
-        run: npm build
+        run: npm run build
 
   release:
     runs-on: ubuntu-latest
